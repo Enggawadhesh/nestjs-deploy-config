@@ -28,6 +28,7 @@ Run App using PM2
   pm2 startup systemd
   pm2 save
   # run Environment=PATH= url form above list
+  pm2 reload all   #for restart
   
 
 =====================
@@ -79,14 +80,28 @@ sudo ufw allow 5432/tcp      #for remote access in pgadmin
 ==============================================
 For redeploy updates copy src folder and paste
 
-pm2 kill
 npm run build    #in project dir
-pm2 start npm -- start
-pm2 save
-pm2 startup systemd 
-#run Environment=PATH= url form abloe list
-
-
 pm2 reload all   #for restart
 
+==============================================
+MySQL Install
 
+sudo apt-get update
+sudo apt-get install mysql-server
+systemctl status mysql
+mysql_secure_installation
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf  #comment bind-address in this file
+require_secure_transport = on   #add below bind-address
+sudo mysql_ssl_rsa_setup --uid=mysql  #For SSL run this command
+sudo systemctl restart mysql
+sudo ufw allow mysql
+
+
+==============================================
+MySQL SetUp
+
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
+CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
