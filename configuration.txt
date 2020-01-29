@@ -1,8 +1,8 @@
 =============
 NGINX Install
 
-sudo apt update
-sudo apt install nginx
+sudo apt-get update
+sudo apt-get install nginx
 sudo ufw app list
 sudo ufw enable
 sudo ufw status
@@ -15,7 +15,7 @@ NodeJs Install
 curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
 #nano nodesource_setup.sh
 sudo bash nodesource_setup.sh
-sudo apt install nodejs
+sudo apt-get install nodejs
 
 
 ===========
@@ -46,12 +46,12 @@ server {
 
 	location / {
 		proxy_set_header X-Real-IP $remote_addr;
-	    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	    proxy_set_header X-NginX-Proxy true;
-	    proxy_pass http://localhost:3000;
-	    proxy_set_header Host $http_host;
-	    proxy_cache_bypass $http_upgrade;
-	    proxy_redirect off;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-NginX-Proxy true;
+		proxy_pass http://localhost:3000;
+		proxy_set_header Host $http_host;
+		proxy_cache_bypass $http_upgrade;
+		proxy_redirect off;
 	}
 }
 `
@@ -61,10 +61,11 @@ sudo systemctl restart nginx
 sudo systemctl reload nginx
 
 
-==================
+===================
+
 PostgreSQL Install
 
-sudo apt install postgresql postgresql-contrib postgresql-client
+sudo apt-get install postgresql postgresql-contrib postgresql-client
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 #switch to postgre user
