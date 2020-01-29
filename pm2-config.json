@@ -1,0 +1,16 @@
+{
+    "apps": [
+      {
+        "name": "app_name",
+        "cwd": "project_folder",
+        "script": "npm",
+        "args": "start"
+      },
+      {
+        "name": "app_name2",
+        "cwd": "other_project_folder",
+        "script": "npm",
+        "args": "run start"
+      }
+    ]
+  }
