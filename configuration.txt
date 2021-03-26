@@ -9,7 +9,12 @@ sudo ufw allow 'Nginx Full'
 sudo ufw status
 systemctl status nginx
 
+==============
+sudo chown -R ubuntu /var/www/html
+sudo chmod 755 -R /var/www/html
 
+Laravel root dir-
+chown -R www-data:www-data *
 ==============
 NodeJs Install
 
@@ -107,3 +112,16 @@ GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
 CREATE USER 'username'@'%' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'username'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
+
+
+==============================================
+PHP Setup
+7.2
+sudo apt-get install php-fpm
+systemctl status php7.2-fpm
+sudo apt-get install php7.2-mysql
+
+7.3
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get install php7.3 php7.3-common php7.3-opcache php7.3-cli php7.3-gd php7.3-curl php7.3-mysql
