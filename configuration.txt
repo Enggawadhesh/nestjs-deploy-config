@@ -14,7 +14,10 @@ sudo chown -R ubuntu /var/www/html
 sudo chmod 755 -R /var/www/html
 
 Laravel root dir-
-chown -R www-data:www-data *
+sudo chown -R $USER:www-data storage
+sudo chown -R $USER:www-data bootstrap/cache
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
 ==============
 NodeJs Install
 
