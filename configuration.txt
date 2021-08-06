@@ -134,3 +134,4 @@ sudo apt-get install php7.3 php7.3-common php7.3-opcache php7.3-cli php7.3-gd ph
 delete files and folders
 in folder- sudo rm -r *
 
+chmod 400 privatekey.pem
